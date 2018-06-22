@@ -92,6 +92,21 @@
                     </item>
                 </argument>
             </filterSelect>
+            <filterSelect name="group_id">
+                <argument name="optionsProvider" xsi:type="configurableObject">
+                    <argument name="class" xsi:type="string">PHPCuong\BannerSlider\Ui\Component\Listing\Column\Group\Options</argument>
+                </argument>
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="provider" xsi:type="string">${ $.parentName }</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="visible" xsi:type="string">componentType = column, index = ${ $.index }:visible</item>
+                        </item>
+                        <item name="dataScope" xsi:type="string">group_id</item>
+                        <item name="label" xsi:type="string" translate="true">Group Name</item>
+                    </item>
+                </argument>
+            </filterSelect>
         </filters>
         <massaction name="listing_massaction">
             <action name="delete">
@@ -224,7 +239,6 @@
         <column name="group_name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">textRange</item>
                     <item name="label" xsi:type="string" translate="true">Group Name</item>
                 </item>
             </argument>

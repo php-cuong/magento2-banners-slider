@@ -89,6 +89,7 @@ class Options implements OptionSourceInterface
     {
         $collection = $this->bannerGroupFactory->create()->getCollection();
         $result = [];
+        $result[] = ['value' => ' ', 'label' => 'Select...'];
         foreach ($collection as $group) {
             $result[] = ['value' => $group->getId(), 'label' => $this->escaper->escapeHtml($group->getName())];
         }
