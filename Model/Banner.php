@@ -66,14 +66,17 @@ class Banner extends \Magento\Framework\Model\AbstractModel
     /**
      * Retrieve the Image URL
      *
-     * @param string $attributeCode
+     * @param string $imageName
      * @return bool|string
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function getImageUrl()
+    public function getImageUrl($imageName = null)
     {
         $url = '';
-        $image = $this->getData('image');
+        $image = $imageName;
+        if (!$image) {
+            $image = $this->getData('image');
+        }
         if ($image) {
             if (is_string($image)) {
                 $url = $this->_getStoreManager()->getStore()->getBaseUrl(
