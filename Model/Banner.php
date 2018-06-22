@@ -54,7 +54,7 @@ class Banner extends \Magento\Framework\Model\AbstractModel
     }
 
     /**
-     * Prepare block's statuses.
+     * Prepare banner's statuses.
      *
      * @return array
      */

@@ -141,10 +141,11 @@
         </field>
         <field name="group_id">
             <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">PHPCuong\BannerSlider\Ui\Component\Listing\Column\Group\Options</item>
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="label" xsi:type="string" translate="true">Group Name</item>
-                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="formElement" xsi:type="string">select</item>
                     <item name="source" xsi:type="string">banner</item>
                     <item name="dataScope" xsi:type="string">group_id</item>
                     <item name="validation" xsi:type="array">

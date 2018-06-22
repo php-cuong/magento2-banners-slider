@@ -76,7 +76,6 @@ class Save extends \Magento\Backend\App\Action
             $imageName = '';
             if (!empty($data['image'])) {
                 $imageName = $data['image'][0]['name'];
-                $data['image'] = null;
             }
 
             /** @var \PHPCuong\BannerSlider\Model\Banner $model */
@@ -89,11 +88,10 @@ class Save extends \Magento\Backend\App\Action
             $model->setData($data);
 
             try {
+                $model->save();
                 if ($imageName) {
                     $this->imageUploader->moveFileFromTmp($imageName);
-                    $model->setImage($imageName);
                 }
-                $model->save();
                 $this->messageManager->addSuccess(__('You saved the banner.'));
                 $this->dataPersistor->clear('banners_slider');
 
