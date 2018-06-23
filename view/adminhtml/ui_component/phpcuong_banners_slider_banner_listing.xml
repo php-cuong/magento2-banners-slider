@@ -237,9 +237,18 @@
                 </item>
             </argument>
         </column>
-        <column name="group_name">
+        <column name="group_id">
             <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">PHPCuong\BannerSlider\Ui\Component\Listing\Column\Group\Options</item>
                 <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">select</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
                     <item name="label" xsi:type="string" translate="true">Group Name</item>
                 </item>
             </argument>

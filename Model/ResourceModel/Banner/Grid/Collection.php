@@ -164,20 +164,4 @@ class Collection extends BannerCollection implements SearchResultInterface
     {
         return $this;
     }
-
-    /**
-     * Join phpcuong_banners_slider_group relation table
-     *
-     * @inheritdoc
-     */
-    protected function _renderFiltersBefore()
-    {
-        $this->getSelect()->joinLeft(
-            ['group' => $this->getTable('phpcuong_banners_slider_group')],
-            'main_table.group_id = group.id',
-            ['group.name as group_name']
-        );
-
-        parent::_renderFiltersBefore();
-    }
 }
