@@ -22,9 +22,18 @@
 namespace PHPCuong\BannerSlider\Model\ResourceModel;
 
 use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\App\ObjectManager;
+use PHPCuong\BannerSlider\Model\Banner\ImageUploader;
 
 class Banner extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
+    /**
+     * ImageUploader
+     *
+     * @var \PHPCuong\BannerSlider\Model\Banner\ImageUploader
+     */
+    protected $_imageUploader;
+
     /**
      * Initialize resource model
      *
@@ -47,7 +56,7 @@ class Banner extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
         $name = $object->getName();
         $url = $object->getUrl();
         $image = $object->getImage();
-        $groupId = $object->getGroupId();
+        $groupId = (int)$object->getGroupId();
         $order = $object->getOrder();
 
         if (empty($name)) {
@@ -67,10 +76,38 @@ class Banner extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
             throw new LocalizedException(__('The Group Name is required.'));
         }
 
-        if (!is_numeric($order)) {
+        if (!empty($order) && !is_numeric($order)) {
             throw new LocalizedException(__('The Sort Order must be a numeric.'));
         }
 
         return $this;
+    }
+
+    /**
+     * Perform actions after object delete
+     *
+     * @param \Magento\Framework\Model\AbstractModel|\Magento\Framework\DataObject $object
+     * @return $this
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
+    protected function _afterDelete(\Magento\Framework\Model\AbstractModel $object)
+    {
+        $imageName = $object->getImage();
+        $this->_getImageUploader()->deleteImage($imageName);
+
+        return $this;
+    }
+
+    /**
+     * Get ImageUploader instance
+     *
+     * @return ImageUploader
+     */
+    private function _getImageUploader()
+    {
+        if ($this->_imageUploader === null) {
+            $this->_imageUploader = ObjectManager::getInstance()->get(ImageUploader::class);
+        }
+        return $this->_imageUploader;
     }
 }

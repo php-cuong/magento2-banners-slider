@@ -34,15 +34,19 @@ class SaveButton extends GenericButton implements ButtonProviderInterface
      */
     public function getButtonData()
     {
-        return [
-            'label' => __('Save Banner'),
-            'class' => 'save primary',
-            'data_attribute' => [
-                'mage-init' => ['button' => ['event' => 'save']],
-                'form-role' => 'save',
-            ],
-            'sort_order' => 90,
-        ];
+        $data = [];
+        if ($this->_isAllowedAction('PHPCuong_BannerSlider::banner_create') || $this->_isAllowedAction('PHPCuong_BannerSlider::banner_update')) {
+            $data = [
+                'label' => __('Save Banner'),
+                'class' => 'save primary',
+                'data_attribute' => [
+                    'mage-init' => ['button' => ['event' => 'save']],
+                    'form-role' => 'save',
+                ],
+                'sort_order' => 90,
+            ];
+        }
+        return $data;
     }
 }
 

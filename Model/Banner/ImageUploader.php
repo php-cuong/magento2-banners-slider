@@ -303,4 +303,24 @@ class ImageUploader
 
         return $result;
     }
+
+    /**
+     * Delete the image name
+     *
+     * @param string $imageName
+     * @param string $type
+     *
+     * @return void
+     */
+    public function deleteImage($imageName, $type = 'dir')
+    {
+        $basePath = $this->getBasePath();
+        if ($type == 'tmp') {
+            $basePath = $this->getBaseTmpPath();
+        }
+
+        if ($this->getFileInfo()->isExist($imageName, $basePath)) {
+            $this->getFileInfo()->deleteFile($imageName, $basePath);
+        }
+    }
 }

@@ -19,40 +19,33 @@
  * @license     https://www.giaphugroup.com/LICENSE.txt
  */
 
-namespace PHPCuong\BannerSlider\Block\Adminhtml\Banner\Edit;
+namespace PHPCuong\BannerSlider\Block\Adminhtml\Group\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
 /**
- * Class DeleteButton
+ * Class SaveButton
+ * @package Magento\Customer\Block\Adminhtml\Edit
  */
-class DeleteButton extends GenericButton implements ButtonProviderInterface
+class SaveButton extends GenericButton implements ButtonProviderInterface
 {
-
     /**
      * @return array
      */
     public function getButtonData()
     {
         $data = [];
-        if ($this->getBannerId() && $this->_isAllowedAction('PHPCuong_BannerSlider::banner_delete')) {
+        if ($this->_isAllowedAction('PHPCuong_BannerSlider::group_create') || $this->_isAllowedAction('PHPCuong_BannerSlider::group_update')) {
             $data = [
-                'label' => __('Delete Banner'),
-                'class' => 'delete',
-                'on_click' => 'deleteConfirm(\'' . __(
-                    'Are you sure you want to do this?'
-                ) . '\', \'' . $this->getDeleteUrl() . '\')',
-                'sort_order' => 20,
+                'label' => __('Save Group'),
+                'class' => 'save primary',
+                'data_attribute' => [
+                    'mage-init' => ['button' => ['event' => 'save']],
+                    'form-role' => 'save',
+                ],
+                'sort_order' => 90,
             ];
         }
         return $data;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDeleteUrl()
-    {
-        return $this->getUrl('*/*/delete', ['id' => $this->getBannerId()]);
     }
 }

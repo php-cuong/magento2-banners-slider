@@ -19,7 +19,7 @@
  * @license     https://www.giaphugroup.com/LICENSE.txt
  */
 
-namespace PHPCuong\BannerSlider\Block\Adminhtml\Banner\Edit;
+namespace PHPCuong\BannerSlider\Block\Adminhtml\Group\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
@@ -35,9 +35,9 @@ class DeleteButton extends GenericButton implements ButtonProviderInterface
     public function getButtonData()
     {
         $data = [];
-        if ($this->getBannerId() && $this->_isAllowedAction('PHPCuong_BannerSlider::banner_delete')) {
+        if ($this->getGroupId() && $this->_isAllowedAction('PHPCuong_BannerSlider::group_delete')) {
             $data = [
-                'label' => __('Delete Banner'),
+                'label' => __('Delete Group'),
                 'class' => 'delete',
                 'on_click' => 'deleteConfirm(\'' . __(
                     'Are you sure you want to do this?'
@@ -53,6 +53,6 @@ class DeleteButton extends GenericButton implements ButtonProviderInterface
      */
     public function getDeleteUrl()
     {
-        return $this->getUrl('*/*/delete', ['id' => $this->getBannerId()]);
+        return $this->getUrl('*/*/delete', ['id' => $this->getGroupId()]);
     }
 }

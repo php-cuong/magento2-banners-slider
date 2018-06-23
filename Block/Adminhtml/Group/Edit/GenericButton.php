@@ -19,7 +19,7 @@
  * @license     https://www.giaphugroup.com/LICENSE.txt
  */
 
-namespace PHPCuong\BannerSlider\Block\Adminhtml\Banner\Edit;
+namespace PHPCuong\BannerSlider\Block\Adminhtml\Group\Edit;
 
 use Magento\Backend\Block\Widget\Context;
 
@@ -51,11 +51,11 @@ class GenericButton
     }
 
     /**
-     * Return the Banner ID
+     * Return the Group ID
      *
      * @return int
      */
-    public function getBannerId()
+    public function getGroupId()
     {
         return (int)$this->context->getRequest()->getParam('id');
     }

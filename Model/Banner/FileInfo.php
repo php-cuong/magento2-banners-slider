@@ -123,4 +123,20 @@ class FileInfo
         $result = $this->getMediaDirectory()->isExist($filePath);
         return $result;
     }
+
+    /**
+     * Delete the file
+     *
+     * @param string $fileName
+     * @return bool
+     */
+    public function deleteFile($fileName, $baseTmpPath = false)
+    {
+        $filePath = self::ENTITY_MEDIA_PATH . '/' . ltrim($fileName, '/');
+        if ($baseTmpPath) {
+            $filePath = $baseTmpPath . '/' . ltrim($fileName, '/');
+        }
+
+        return $this->getMediaDirectory()->delete($filePath);
+    }
 }

@@ -122,18 +122,6 @@
                     </item>
                 </argument>
             </action>
-            <action name="edit">
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="type" xsi:type="string">edit</item>
-                        <item name="label" xsi:type="string" translate="true">Edit</item>
-                        <item name="callback" xsi:type="array">
-                            <item name="provider" xsi:type="string">phpcuong_banners_slider_banner_listing.phpcuong_banners_slider_banner_listing.banners_slider_columns_editor</item>
-                            <item name="target" xsi:type="string">editSelected</item>
-                        </item>
-                    </item>
-                </argument>
-            </action>
         </massaction>
         <paging name="listing_paging"/>
     </listingToolbar>
