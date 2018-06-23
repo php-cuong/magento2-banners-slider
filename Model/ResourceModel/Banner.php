@@ -56,7 +56,7 @@ class Banner extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
         $name = $object->getName();
         $url = $object->getUrl();
         $image = $object->getImage();
-        $groupId = (int)$object->getGroupId();
+        $groupId = $object->getGroupId();
         $order = $object->getOrder();
 
         if (empty($name)) {
