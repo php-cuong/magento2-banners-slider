@@ -122,12 +122,33 @@
                     </item>
                 </argument>
             </action>
+            <action name="edit">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">edit</item>
+                        <item name="label" xsi:type="string" translate="true">Edit</item>
+                        <item name="callback" xsi:type="array">
+                            <item name="provider" xsi:type="string">phpcuong_banners_slider_banner_listing.phpcuong_banners_slider_banner_listing.banners_slider_columns_editor</item>
+                            <item name="target" xsi:type="string">editSelected</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
         </massaction>
         <paging name="listing_paging"/>
     </listingToolbar>
     <columns name="banners_slider_columns">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
+                <item name="editorConfig" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">phpcuong_banners_slider_banner_listing.phpcuong_banners_slider_banner_listing.banners_slider_columns.ids</item>
+                    <item name="enabled" xsi:type="boolean">true</item>
+                    <item name="indexField" xsi:type="string">id</item>
+                    <item name="clientConfig" xsi:type="array">
+                        <item name="saveUrl" xsi:type="url" path="phpcuong_banners_slider/banner/inlineEdit"/>
+                        <item name="validateBeforeSave" xsi:type="boolean">false</item>
+                    </item>
+                </item>
                 <item name="childDefaults" xsi:type="array">
                     <item name="fieldAction" xsi:type="array">
                         <item name="provider" xsi:type="string">phpcuong_banners_slider_banner_listing.phpcuong_banners_slider_banner_listing.banners_slider_columns_editor</item>
@@ -186,7 +207,7 @@
                     <item name="editor" xsi:type="array">
                         <item name="editorType" xsi:type="string">text</item>
                         <item name="validation" xsi:type="array">
-                            <item name="required-entry" xsi:type="boolean">true</item>
+                            <item name="required-entry" xsi:type="boolean">false</item>
                         </item>
                     </item>
                     <item name="visible" xsi:type="boolean">false</item>
@@ -211,6 +232,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">textRange</item>
+                    <item name="editor" xsi:type="string">text</item>
                     <item name="label" xsi:type="string" translate="true">Order</item>
                 </item>
             </argument>
