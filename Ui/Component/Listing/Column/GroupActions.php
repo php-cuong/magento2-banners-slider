@@ -33,10 +33,6 @@ use Magento\Framework\Escaper;
  */
 class GroupActions extends Column
 {
-    /**
-     * Url path
-     */
-    const URL_PATH_EDIT = 'phpcuong_banners_slider/group/edit';
     const URL_PATH_DELETE = 'phpcuong_banners_slider/group/delete';
 
     /**
@@ -84,15 +80,6 @@ class GroupActions extends Column
                 if (isset($item['id'])) {
                     $name = $this->getEscaper()->escapeHtml($item['name']);
                     $item[$this->getData('name')] = [
-                        'edit' => [
-                            'href' => $this->urlBuilder->getUrl(
-                                static::URL_PATH_EDIT,
-                                [
-                                    'id' => $item['id']
-                                ]
-                            ),
-                            'label' => __('Edit')
-                        ],
                         'delete' => [
                             'href' => $this->urlBuilder->getUrl(
                                 static::URL_PATH_DELETE,
