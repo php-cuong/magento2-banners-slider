@@ -23,24 +23,24 @@
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">phpcuong_banners_slider_banner_listing.phpcuong_banners_slider_banner_listing_data_source</item>
-            <item name="deps" xsi:type="string">phpcuong_banners_slider_banner_listing.phpcuong_banners_slider_banner_listing_data_source</item>
+            <item name="provider" xsi:type="string">phpcuong_banners_slider_group_listing.phpcuong_banners_slider_group_listing_data_source</item>
+            <item name="deps" xsi:type="string">phpcuong_banners_slider_group_listing.phpcuong_banners_slider_group_listing_data_source</item>
         </item>
-        <item name="spinner" xsi:type="string">banners_slider_columns</item>
+        <item name="spinner" xsi:type="string">groups_columns</item>
         <item name="buttons" xsi:type="array">
             <item name="add" xsi:type="array">
                 <item name="name" xsi:type="string">add</item>
-                <item name="label" xsi:type="string" translate="true">Add New Banner</item>
+                <item name="label" xsi:type="string" translate="true">Add New Group</item>
                 <item name="class" xsi:type="string">primary</item>
                 <item name="url" xsi:type="string">*/*/new</item>
             </item>
         </item>
-        <item name="acl" xsi:type="string">PHPCuong_BannerSlider::all_banners</item>
+        <item name="acl" xsi:type="string">PHPCuong_BannerSlider::all_groups</item>
     </argument>
-    <dataSource name="phpcuong_banners_slider_banner_listing_data_source">
+    <dataSource name="phpcuong_banners_slider_group_listing_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
-            <argument name="name" xsi:type="string">phpcuong_banners_slider_banner_listing_data_source</argument>
+            <argument name="name" xsi:type="string">phpcuong_banners_slider_group_listing_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
             <argument name="data" xsi:type="array">
@@ -76,37 +76,6 @@
                     </item>
                 </item>
             </argument>
-            <filterSelect name="store_id">
-                <argument name="optionsProvider" xsi:type="configurableObject">
-                    <argument name="class" xsi:type="string">Magento\Cms\Ui\Component\Listing\Column\Cms\Options</argument>
-                </argument>
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="provider" xsi:type="string">${ $.parentName }</item>
-                        <item name="imports" xsi:type="array">
-                            <item name="visible" xsi:type="string">componentType = column, index = ${ $.index }:visible</item>
-                        </item>
-                        <item name="dataScope" xsi:type="string">store_id</item>
-                        <item name="label" xsi:type="string" translate="true">Store View</item>
-                        <item name="captionValue" xsi:type="string">0</item>
-                    </item>
-                </argument>
-            </filterSelect>
-            <filterSelect name="group_id">
-                <argument name="optionsProvider" xsi:type="configurableObject">
-                    <argument name="class" xsi:type="string">PHPCuong\BannerSlider\Ui\Component\Listing\Column\Group\Options</argument>
-                </argument>
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="provider" xsi:type="string">${ $.parentName }</item>
-                        <item name="imports" xsi:type="array">
-                            <item name="visible" xsi:type="string">componentType = column, index = ${ $.index }:visible</item>
-                        </item>
-                        <item name="dataScope" xsi:type="string">group_id</item>
-                        <item name="label" xsi:type="string" translate="true">Group Name</item>
-                    </item>
-                </argument>
-            </filterSelect>
         </filters>
         <massaction name="listing_massaction">
             <action name="delete">
@@ -114,7 +83,7 @@
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">delete</item>
                         <item name="label" xsi:type="string" translate="true">Delete</item>
-                        <item name="url" xsi:type="url" path="phpcuong_banners_slider/banner/massDelete"/>
+                        <item name="url" xsi:type="url" path="phpcuong_banners_slider/group/massDelete"/>
                         <item name="confirm" xsi:type="array">
                             <item name="title" xsi:type="string" translate="true">Delete items</item>
                             <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>
@@ -128,7 +97,7 @@
                         <item name="type" xsi:type="string">edit</item>
                         <item name="label" xsi:type="string" translate="true">Edit</item>
                         <item name="callback" xsi:type="array">
-                            <item name="provider" xsi:type="string">phpcuong_banners_slider_banner_listing.phpcuong_banners_slider_banner_listing.banners_slider_columns_editor</item>
+                            <item name="provider" xsi:type="string">phpcuong_banners_slider_group_listing.phpcuong_banners_slider_group_listing.groups_columns_editor</item>
                             <item name="target" xsi:type="string">editSelected</item>
                         </item>
                     </item>
@@ -137,12 +106,21 @@
         </massaction>
         <paging name="listing_paging"/>
     </listingToolbar>
-    <columns name="banners_slider_columns">
+    <columns name="groups_columns">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
+                <item name="editorConfig" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">phpcuong_banners_slider_group_listing.phpcuong_banners_slider_group_listing.groups_columns.ids</item>
+                    <item name="enabled" xsi:type="boolean">true</item>
+                    <item name="indexField" xsi:type="string">id</item>
+                    <item name="clientConfig" xsi:type="array">
+                        <item name="saveUrl" xsi:type="url" path="phpcuong_banners_slider/group/inlineEdit"/>
+                        <item name="validateBeforeSave" xsi:type="boolean">false</item>
+                    </item>
+                </item>
                 <item name="childDefaults" xsi:type="array">
                     <item name="fieldAction" xsi:type="array">
-                        <item name="provider" xsi:type="string">phpcuong_banners_slider_banner_listing.phpcuong_banners_slider_banner_listing.banners_slider_columns_editor</item>
+                        <item name="provider" xsi:type="string">phpcuong_banners_slider_group_listing.phpcuong_banners_slider_group_listing.groups_columns_editor</item>
                         <item name="target" xsi:type="string">startEdit</item>
                         <item name="params" xsi:type="array">
                             <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
@@ -168,78 +146,11 @@
                 </item>
             </argument>
         </column>
-        <column name="image" class="PHPCuong\BannerSlider\Ui\Component\Listing\Column\Image">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
-                    <item name="sortable" xsi:type="boolean">false</item>
-                    <item name="has_preview" xsi:type="string">1</item>
-                    <item name="label" xsi:type="string" translate="true">Image</item>
-                </item>
-            </argument>
-        </column>
         <column name="name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="editor" xsi:type="array">
-                        <item name="editorType" xsi:type="string">text</item>
-                        <item name="validation" xsi:type="array">
-                            <item name="required-entry" xsi:type="boolean">true</item>
-                        </item>
-                    </item>
                     <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Name</item>
-                </item>
-            </argument>
-        </column>
-        <column name="url">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="editor" xsi:type="array">
-                        <item name="editorType" xsi:type="string">text</item>
-                        <item name="validation" xsi:type="array">
-                            <item name="required-entry" xsi:type="boolean">true</item>
-                        </item>
-                    </item>
-                    <item name="visible" xsi:type="boolean">false</item>
-                    <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">URL Link</item>
-                </item>
-            </argument>
-        </column>
-        <column name="status">
-            <argument name="data" xsi:type="array">
-                <item name="options" xsi:type="object">PHPCuong\BannerSlider\Model\Banner\Source\Status</item>
-                <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">select</item>
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
-                    <item name="editor" xsi:type="string">select</item>
-                    <item name="dataType" xsi:type="string">select</item>
-                    <item name="label" xsi:type="string" translate="true">Status</item>
-                </item>
-            </argument>
-        </column>
-        <column name="order">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">textRange</item>
-                    <item name="label" xsi:type="string" translate="true">Order</item>
-                </item>
-            </argument>
-        </column>
-        <column name="group_name">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
                     <item name="label" xsi:type="string" translate="true">Group Name</item>
-                </item>
-            </argument>
-        </column>
-        <column name="store_id" class="Magento\Store\Ui\Component\Listing\Column\Store">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
-                    <item name="sortable" xsi:type="boolean">false</item>
-                    <item name="label" xsi:type="string" translate="true">Store View</item>
                 </item>
             </argument>
         </column>
@@ -260,11 +171,10 @@
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
                     <item name="dataType" xsi:type="string">date</item>
                     <item name="label" xsi:type="string" translate="true">Modified</item>
-                    <item name="visible" xsi:type="boolean">false</item>
                 </item>
             </argument>
         </column>
-        <actionsColumn name="actions" class="PHPCuong\BannerSlider\Ui\Component\Listing\Column\BannerActions">
+        <actionsColumn name="actions" class="PHPCuong\BannerSlider\Ui\Component\Listing\Column\GroupActions">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="indexField" xsi:type="string">id</item>

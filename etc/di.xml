@@ -25,6 +25,7 @@
         <arguments>
             <argument name="collections" xsi:type="array">
                 <item name="phpcuong_banners_slider_banner_listing_data_source" xsi:type="string">PHPCuong\BannerSlider\Model\ResourceModel\Banner\Grid\Collection</item>
+                <item name="phpcuong_banners_slider_group_listing_data_source" xsi:type="string">PHPCuong\BannerSlider\Model\ResourceModel\Group\Grid\Collection</item>
             </argument>
         </arguments>
     </type>
@@ -34,6 +35,14 @@
             <argument name="eventPrefix" xsi:type="string">phpcuong_banners_slider_grid_collection</argument>
             <argument name="eventObject" xsi:type="string">banner_grid_collection</argument>
             <argument name="resourceModel" xsi:type="string">PHPCuong\BannerSlider\Model\ResourceModel\Banner</argument>
+        </arguments>
+    </type>
+    <type name="PHPCuong\BannerSlider\Model\ResourceModel\Group\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">phpcuong_banners_slider_group</argument>
+            <argument name="eventPrefix" xsi:type="string">phpcuong_banners_slider_group_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">group_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">PHPCuong\BannerSlider\Model\ResourceModel\Group</argument>
         </arguments>
     </type>
 </config>
