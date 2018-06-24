@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * GiaPhuGroup Co., Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GiaPhuGroup.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.giaphugroup.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    PHPCuong
+ * @package     PHPCuong_BannerSlider
+ * @copyright   Copyright (c) 2018-2019 GiaPhuGroup Co., Ltd. All rights reserved. (http://www.giaphugroup.com/)
+ * @license     https://www.giaphugroup.com/LICENSE.txt
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="phpcuong_banners_slider"
+            class="PHPCuong\BannerSlider\Block\Widget\BannerSlider">
+        <label translate="true">Banners Slider</label>
+        <description translate="true">Show the banners slider via Group Name</description>
+        <parameters>
+            <parameter name="group_id" xsi:type="select" visible="true" required="true"
+                       source_model="PHPCuong\BannerSlider\Model\Group\Config\Source\Options">
+                <label translate="true">Group Name</label>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default"
+                            value="PHPCuong_BannerSlider::banner/list.phtml"
+                            selected="true">
+                        <label translate="true">Homepage Template</label>
+                    </option>
+                    <option name="brand"
+                            value="PHPCuong_BannerSlider::banner/brand-list.phtml"
+                            selected="true">
+                        <label translate="true">Brand Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

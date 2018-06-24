@@ -21,7 +21,7 @@
 var config = {
     map: {
         '*': {
-            owlCarousel: 'PHPCuong_BannerSlider/js/owl.carousel'
+            owlcarousel: 'PHPCuong_BannerSlider/js/owl.carousel'
         }
     }
 };
