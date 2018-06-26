@@ -7,8 +7,8 @@ Banners Slider Extension For Magento 2
 
 # Screenshot
 
-## *The brand slider demo*
+*The brand slider demo*
 ![ScreenShot](https://github.com/php-cuong/magento2-banners-slider/blob/master/Screenshot/brand-list-demo.gif)
 
-## *The home slider demo*
+*The home slider demo*
 ![ScreenShot](https://github.com/php-cuong/magento2-banners-slider/blob/master/Screenshot/homeslider-demo.gif)
