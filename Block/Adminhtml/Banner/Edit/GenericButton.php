@@ -21,12 +21,13 @@
 
 namespace PHPCuong\BannerSlider\Block\Adminhtml\Banner\Edit;
 
-use Magento\Backend\Block\Widget\Context;
+use Magento\Framework\View\Element\UiComponent\Context;
+use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
 /**
  * Class GenericButton
  */
-class GenericButton
+class GenericButton implements ButtonProviderInterface
 {
     /**
      * @var Context
@@ -34,13 +35,20 @@ class GenericButton
     protected $context;
 
     /**
+     * @var \Magento\Framework\AuthorizationInterface
+     */
+    protected $_authorization;
+
+    /**
      * @param Context $context
+     * @param \Magento\Framework\AuthorizationInterface $authorization
      */
     public function __construct(
-        Context $context
+        Context $context,
+        \Magento\Framework\AuthorizationInterface $authorization
     ) {
         $this->context = $context;
-        $this->_authorization = $context->getAuthorization();
+        $this->_authorization = $authorization;
     }
 
     /**
@@ -63,6 +71,14 @@ class GenericButton
     public function getUrl($route = '', $params = [])
     {
         return $this->context->getUrlBuilder()->getUrl($route, $params);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getButtonData()
+    {
+        return [];
     }
 
     /**
