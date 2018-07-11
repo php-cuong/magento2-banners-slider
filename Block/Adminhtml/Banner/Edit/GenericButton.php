@@ -34,20 +34,13 @@ class GenericButton
     protected $context;
 
     /**
-     * @var \Magento\Framework\AuthorizationInterface
-     */
-    protected $_authorization;
-
-    /**
      * @param Context $context
-     * @param \Magento\Framework\AuthorizationInterface $authorization
      */
     public function __construct(
-        Context $context,
-        \Magento\Framework\AuthorizationInterface $authorization
+        Context $context
     ) {
         $this->context = $context;
-        $this->_authorization = $authorization;
+        $this->_authorization = $context->getAuthorization();
     }
 
     /**
