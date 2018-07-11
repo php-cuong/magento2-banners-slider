@@ -27,7 +27,7 @@ $banners = $block->getBanners();
         <?php foreach ($banners as $banner): ?>
             <div class="item">
                 <?php if ($banner->getUrl()): ?>
-                    <a href="<?= $banner->getUrl(); ?>" title="<?= $banner->getName(); ?>">
+                    <a href="<?= $banner->getUrl(); ?>" title="<?= $banner->getName(); ?>" target="_blank">
                 <?php endif; ?>
                 <img src="<?= $banner->getImageUrl(); ?>" alt="<?= $banner->getName(); ?>" width="100%"/>
                 <?php if ($banner->getUrl()): ?>
@@ -39,24 +39,32 @@ $banners = $block->getBanners();
     <script type="text/javascript">
         require(['jquery', 'owlcarousel'], function($) {
             $('.brand-slider').owlCarousel({
-                center: false,
-                startPosition: 0,
-                margin: 0,
-                responsive: {
-                    0: {
-                        items:1
+                responsive:{
+                    0:{
+                        items:2
                     },
-                    768: {
+                    480:{
+                        items:3
+                    },
+                    768:{
+                        items:4
+                    },
+                    992:{
                         items:5
+                    },
+                    1200:{
+                        items:6
                     }
                 },
-                nav: true,
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 5000,
+                autoplay:false,
+                loop:true,
+                nav : true,
+                dots: false,
+                autoplaySpeed : 500,
+                navSpeed : 500,
+                dotsSpeed : 500,
                 autoplayHoverPause: true,
-                autoplaySpeed: 800,
-                mouseDrag: true
+                margin:30
             });
         });
     </script>

@@ -1,0 +1,66 @@
+/**
+ * GiaPhuGroup Co., Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GiaPhuGroup.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.giaphugroup.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    PHPCuong
+ * @package     PHPCuong_BannerSlider
+ * @copyright   Copyright (c) 2017-2019 GiaPhuGroup Co., Ltd. All rights reserved. (http://www.giaphugroup.com/)
+ * @license     https://www.giaphugroup.com/LICENSE.txt
+ */
+
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+  .brand-slider.owl-carousel {
+    .owl-stage-outer {
+      border: 1px solid #e5e5e5;
+      border-radius: 4px;
+      position: relative;
+      padding: 5px 0px;
+    }
+    .owl-nav {
+      button.owl-next,
+      button.owl-prev {
+        &:first-child {
+          left: 0px;
+        }
+        &:last-child {
+            right: -45px;
+        }
+      }
+    }
+    &:hover {
+      .owl-nav {
+        button.owl-next,
+        button.owl-prev {
+          width: 44px;
+          height: 44px;
+          line-height: 40px;
+          background-color: #fff;
+          border: 1px solid #e5e5e5;
+          color: #aaa;
+          margin: 0;
+          border-radius: 50%;
+          -moz-border-radius: 50%;
+          -webkit-border-radius: 50%;
+          &:hover {
+            background-color: #b14671;
+            border: 0px;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

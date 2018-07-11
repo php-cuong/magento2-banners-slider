@@ -23,7 +23,8 @@
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
     <widget id="phpcuong_banners_slider"
-            class="PHPCuong\BannerSlider\Block\Widget\BannerSlider">
+            class="PHPCuong\BannerSlider\Block\Widget\BannerSlider"
+            placeholder_image="PHPCuong_BannerSlider::images/banner-slider-widget.png" ttl="86400">
         <label translate="true">Banners Slider</label>
         <description translate="true">Show the banners slider via Group Name</description>
         <parameters>
@@ -35,6 +36,11 @@
                 <label translate="true">Template</label>
                 <options>
                     <option name="default"
+                            value=""
+                            selected="true">
+                        <label translate="true">Select ...</label>
+                    </option>
+                    <option name="homepage"
                             value="PHPCuong_BannerSlider::banner/list.phtml"
                             selected="true">
                         <label translate="true">Homepage Template</label>
