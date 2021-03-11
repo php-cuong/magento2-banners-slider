@@ -58,7 +58,7 @@ class GenericButton implements ButtonProviderInterface
      */
     public function getBannerId()
     {
-        return (int)$this->context->getRequest()->getParam('id');
+        return (int)$this->context->getRequestParams('id');
     }
 
     /**
@@ -70,7 +70,7 @@ class GenericButton implements ButtonProviderInterface
      */
     public function getUrl($route = '', $params = [])
     {
-        return $this->context->getUrlBuilder()->getUrl($route, $params);
+        return $this->context->getUrl($route, $params);
     }
 
     /**
