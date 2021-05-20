@@ -73,9 +73,9 @@ class Save extends \Magento\Backend\App\Action
                 $data['id'] = null;
             }
 
-            $imageName = '';
-            if (!empty($data['image'])) {
+           if (!empty($data['image'])) {
                 $imageName = $data['image'][0]['name'];
+                $data['image'] = $imageName;
             }
 
             /** @var \PHPCuong\BannerSlider\Model\Banner $model */
